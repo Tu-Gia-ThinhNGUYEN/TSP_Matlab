@@ -30,11 +30,20 @@ for i in range(len(xy)):
 miter = 100
 m = 100
 
-sales = 3
+v = 3
 depot = 9
 
 p = 0.15
 alpha = 2
 beta = 4
 
-mainACO(miter,m,sales,depot,p,alpha,beta,d)
+n = len(x)
+sales = round((n-1)/v)
+if (n-1)%v != 0:
+    sales = sales + 1
+
+print(sales)
+
+pathOfmTSP,minDistance = mainACO(miter,m,sales,depot,p,alpha,beta,d,v)
+print(pathOfmTSP)
+print(minDistance)

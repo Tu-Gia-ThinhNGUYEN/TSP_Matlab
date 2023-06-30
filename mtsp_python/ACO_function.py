@@ -2,10 +2,10 @@ import random
 import numpy as np
 import time
 
-def antTour(city,m,n,h,t,alpha,beta,sales):
+def antTour(city,m,n,h,t,alpha,beta,sales,v):
     for i in range(0,m):
         mh = h.copy()
-        stationObtained = round((n-1)/sales)
+        stationObtained = v
         # if i==1:
         #     print(h)
         #     time.sleep(30000)
@@ -17,7 +17,7 @@ def antTour(city,m,n,h,t,alpha,beta,sales):
                 c = city[i,j].copy()
                 mh[:,c-1]=0.0
                 city[i,j+1]=city[i,0].copy()
-                stationObtained = stationObtained + j+1
+                stationObtained = v + j+1
                 continue
             c = city[i,j].copy()
             # print(mh[c-1,:])
@@ -53,7 +53,7 @@ def pheromoneUpdate(m, n, t, tour, distance, p,sales):
             t_temp[tour[i,j].copy()-1,tour[i,j+1].copy()-1]=(1-p)*t[tour[i,j].copy()-1,tour[i,j+1].copy()-1].copy()+dt
     return t_temp
 
-def mainACO(miter,m,sales,depot,p,alpha,beta,d):
+def mainACO(miter,m,sales,depot,p,alpha,beta,d,v):
     n = len(d)
     t = 0.0001*np.ones((len(d),len(d)))
     # Create the heuristic matrix
@@ -80,7 +80,7 @@ def mainACO(miter,m,sales,depot,p,alpha,beta,d):
         # Step 2:  Constructing solutions: Each ant constructs a solution by moving from its current city to the next city 
         # based on the pheromone level and the heuristic information.
         # print(h)
-        tour = antTour(city, m, n, h, t, alpha, beta,sales)
+        tour = antTour(city, m, n, h, t, alpha, beta,sales,v)
         # Step 3: Updating pheromone levels: After all ants have constructed a solution, 
         # the pheromone level on each edge is updated based on the distance of the tour.
         distance = calculateDistance(m, n, d, tour,sales)
@@ -90,22 +90,34 @@ def mainACO(miter,m,sales,depot,p,alpha,beta,d):
         best_index = int(np.argmin(distance,axis=0))
         besttour[i,:] = tour[best_index,:]
    
-    print(besttour)
+    # print(besttour)
     minDistance = float(np.amin(bestSolution,axis=0))
     minIndex = int(np.argmin(bestSolution,axis=0))
     generalPath = besttour[minIndex,:]
-    print(generalPath)
-    pathOfmTSP = np.zeros((sales, round((n-1)/sales)+2))
-    index = 0
-    j = 0
-    stationObtained = round((n-1)/sales)
-    for i in range(0,n+sales-1):
-        pathOfmTSP[index,i-j] = generalPath[i]
-        if i == stationObtained+1:
-            stationObtained = stationObtained + i
-            index = index + 1
-            j = i
-    for i in range(0,sales):
-        pathOfmTSP[i,-1] = depot
-    pathOfmTSP = pathOfmTSP.astype(int)
-    print(pathOfmTSP)
+    # print(generalPath)
+    # pathOfmTSP = np.zeros((sales, round((n-1)/sales)+2))
+    # index = 0
+    # j = 0
+    # stationObtained = round((n-1)/sales)
+    # for i in range(0,n+sales-1):
+    #     pathOfmTSP[index,i-j] = generalPath[i]
+    #     if i == stationObtained+1:
+    #         stationObtained = stationObtained + i
+    #         index = index + 1
+    #         j = i
+    # for i in range(0,sales):
+    #     pathOfmTSP[i,-1] = depot
+    # pathOfmTSP = pathOfmTSP.astype(int)
+    # print(pathOfmTSP)
+    pathOfmTSP = []
+    temp = []
+    temp.append(generalPath[0])
+    for i in range(1,len(generalPath)):
+        temp.append(generalPath[i])
+        if (generalPath[i] == depot):
+            pathOfmTSP.append(temp)
+            temp = []
+            temp.append(generalPath[i])
+    # print(pathOfmTSP)
+    return pathOfmTSP, minDistance
+
