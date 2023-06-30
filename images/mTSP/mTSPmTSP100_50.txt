@@ -1,0 +1,35 @@
+Elapsed time is 4.192936 seconds.
+Best Distance: 11221.9327
+
+filename = 
+
+    "../images/mTSP/mTSP100_50_1.png"
+
+Elapsed time is 4.088133 seconds.
+Best Distance: 11562.6651
+
+filename = 
+
+    "../images/mTSP/mTSP100_50_2.png"
+
+Elapsed time is 4.110710 seconds.
+Best Distance: 11179.6009
+
+filename = 
+
+    "../images/mTSP/mTSP100_50_3.png"
+
+Elapsed time is 4.079173 seconds.
+Best Distance: 11661.8299
+
+filename = 
+
+    "../images/mTSP/mTSP100_50_4.png"
+
+Elapsed time is 4.115100 seconds.
+Best Distance: 11824.5534
+
+filename = 
+
+    "../images/mTSP/mTSP100_50_5.png"
+

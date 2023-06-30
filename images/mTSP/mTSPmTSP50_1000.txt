@@ -1,0 +1,61 @@
+Best Distance: 9248.9442
+Elapsed time is 25.718382 seconds.
+
+filename = 
+
+    "../images/mTSP/mTSP50_1000_1.png"
+
+Best Distance: 9238.5784
+Elapsed time is 25.636025 seconds.
+
+filename = 
+
+    "../images/mTSP/mTSP50_1000_2.png"
+
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('antTour', 'T:\Programming\Swarm\Test\mtsp_ver2\antTour.m', 16)" style="font-weight:bold">antTour</a> (<a href="matlab: opentoline('T:\Programming\Swarm\Test\mtsp_ver2\antTour.m',16,0)">line 16</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('loopACO', 'T:\Programming\Swarm\Test\mtsp_ver2\loopACO.m', 78)" style="font-weight:bold">loopACO</a> (<a href="matlab: opentoline('T:\Programming\Swarm\Test\mtsp_ver2\loopACO.m',78,0)">line 78</a>)
+        [tour] = antTour(city, m, n, h, t, alpha, beta,sales,v);
+} 
+loopACO
+
+sales =
+
+     4
+
+Elapsed time is 25.668516 seconds.
+Best Distance: 9398.0064
+
+filename = 
+
+    "../images/mTSP/mTSP50_1000_1.png"
+
+Elapsed time is 25.738228 seconds.
+Best Distance: 9322.6456
+
+filename = 
+
+    "../images/mTSP/mTSP50_1000_2.png"
+
+Elapsed time is 25.603133 seconds.
+Best Distance: 9379.337
+
+filename = 
+
+    "../images/mTSP/mTSP50_1000_3.png"
+
+Elapsed time is 25.938324 seconds.
+Best Distance: 9319.9075
+
+filename = 
+
+    "../images/mTSP/mTSP50_1000_4.png"
+
+Elapsed time is 25.566688 seconds.
+Best Distance: 9017.4706
+
+filename = 
+
+    "../images/mTSP/mTSP50_1000_5.png"
+
